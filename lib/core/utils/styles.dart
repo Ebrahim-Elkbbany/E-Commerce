@@ -20,10 +20,6 @@ abstract class Styles {
   );
   static TextStyle textStyle20 = TextStyle(
     fontSize: 20.sp,
-    fontWeight: FontWeight.normal,
-  );
-  static TextStyle textStyle32 = TextStyle(
-    fontSize: 32.sp,
     fontWeight: FontWeight.bold,
   );
 }

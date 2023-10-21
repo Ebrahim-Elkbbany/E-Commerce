@@ -3,23 +3,36 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CategoryContainer extends StatelessWidget {
-  const CategoryContainer({Key? key}) : super(key: key);
+  const CategoryContainer({
+    Key? key,
+    required this.name,
+    required this.onTap,
+    required this.color,
+    required this.fontColor,
+  }) : super(key: key);
+  final String name;
+  final void Function() onTap;
+  final Color color;
+  final Color fontColor;
 
   @override
   Widget build(BuildContext context) {
-    return  Container(
-      height: 30.h,
-      width: 100.w,
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: Colors.grey[200],
-        borderRadius: BorderRadius.circular(16.w),
-      ),
-      child: Text(
-        'All Product',
-        style: Styles.textStyle14.copyWith(
-          color: Colors.black54,
-          fontWeight: FontWeight.w400,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        height: 30.h,
+        width: 120.w,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(16.w),
+        ),
+        child: Text(
+          name,
+          style: Styles.textStyle14.copyWith(
+            color: fontColor,
+            fontWeight: FontWeight.w400,
+          ),
         ),
       ),
     );

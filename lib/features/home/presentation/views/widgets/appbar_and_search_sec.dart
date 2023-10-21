@@ -51,12 +51,13 @@ class AppBarAndSearchSec extends StatelessWidget {
           CustomTextFormField(
             hintText: "Search For brand",
             prefix: Icons.search_outlined,
-            boarderRadius: 16.w,
+            boarderRadius: 12.w,
             prefixColor: Colors.grey,
           ),
           SizedBox(
             height: SizeConfig.height(context, 0.03),
-          ),],
+          ),
+        ],
       ),
     );
   }
