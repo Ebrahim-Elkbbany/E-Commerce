@@ -18,12 +18,14 @@ class ContainerSection extends StatelessWidget {
       clipBehavior: Clip.antiAliasWithSaveLayer,
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.black,
-          style: BorderStyle.solid,
-        ),
-        borderRadius: BorderRadius.circular(15.w),
+            color: Colors.black, style: BorderStyle.solid, width: 1.w),
+        borderRadius: BorderRadius.circular(8.w),
       ),
-      child: Image.network(image,fit: BoxFit.fill,width: double.infinity),
+      child: Image.network(
+        image,
+        fit: BoxFit.fill,
+        width: double.infinity,
+      ),
     );
   }
 }

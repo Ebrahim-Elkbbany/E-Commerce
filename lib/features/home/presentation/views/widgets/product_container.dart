@@ -1,20 +1,20 @@
 import 'package:ecommerce/constant.dart';
 import 'package:ecommerce/core/utils/functions/navigate.dart';
 import 'package:ecommerce/core/utils/styles.dart';
-import 'package:ecommerce/features/product_details/presentation/views/details_screen.dart';
+import 'package:ecommerce/features/product_details/presentation/views/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProductContainer extends StatelessWidget {
   const ProductContainer(
       {Key? key,
-      required this.image,
+      required this.images,
       required this.title,
       required this.description,
       required this.price,
       this.onTap})
       : super(key: key);
-  final String image;
+  final List<String> images;
   final String title;
   final String description;
   final int price;
@@ -27,7 +27,7 @@ class ProductContainer extends StatelessWidget {
         navigateTo(
           context,
           ProductDetailsScreen(
-            image: image,
+            images: images,
             title: title,
             description: description,
             price: price,
@@ -53,7 +53,7 @@ class ProductContainer extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Image.network(
-              image,
+              images[0],
               fit: BoxFit.contain,
               height: 100.h,
             ),
@@ -71,10 +71,15 @@ class ProductContainer extends StatelessWidget {
                     .copyWith(color: Colors.grey)),
             Row(
               children: [
-                Text(
-                  '\$ $price',
-                  style:
-                      Styles.textStyle18.copyWith(fontWeight: FontWeight.w900),
+                SizedBox(
+                  width: 100.w,
+                  child: Text(
+                    '\$ $price',
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style:
+                        Styles.textStyle18.copyWith(fontWeight: FontWeight.w900),
+                  ),
                 ),
                 const Spacer(),
                 Container(
@@ -93,4 +98,5 @@ class ProductContainer extends StatelessWidget {
       ),
     );
   }
+
 }
